@@ -11,7 +11,37 @@
 		A91A1B072C33F1B00035A117 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91A1B062C33F1B00035A117 /* ContentView.swift */; };
 		A91A1B092C33F1B10035A117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91A1B082C33F1B10035A117 /* Assets.xcassets */; };
 		A91A1B0C2C33F1B10035A117 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91A1B0B2C33F1B10035A117 /* Preview Assets.xcassets */; };
+		A91A1B192C33F2240035A117 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91A1B182C33F2240035A117 /* WidgetKit.framework */; };
+		A91A1B1B2C33F2240035A117 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A91A1B1A2C33F2240035A117 /* SwiftUI.framework */; };
+		A91A1B1E2C33F2240035A117 /* MonthlyWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91A1B1D2C33F2240035A117 /* MonthlyWidgetBundle.swift */; };
+		A91A1B202C33F2240035A117 /* MonthlyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91A1B1F2C33F2240035A117 /* MonthlyWidget.swift */; };
+		A91A1B222C33F2260035A117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91A1B212C33F2260035A117 /* Assets.xcassets */; };
+		A91A1B262C33F2260035A117 /* MonthlyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A91A1B162C33F2240035A117 /* MonthlyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A91A1B242C33F2260035A117 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A91A1AF92C33F1B00035A117 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A91A1B152C33F2240035A117;
+			remoteInfo = MonthlyWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A91A1B2A2C33F2260035A117 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A91A1B262C33F2260035A117 /* MonthlyWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		A91A1B012C33F1B00035A117 /* Monthly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Monthly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,6 +49,13 @@
 		A91A1B062C33F1B00035A117 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A91A1B082C33F1B10035A117 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A91A1B0B2C33F1B10035A117 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A91A1B162C33F2240035A117 /* MonthlyWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MonthlyWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A91A1B182C33F2240035A117 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A91A1B1A2C33F2240035A117 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A91A1B1D2C33F2240035A117 /* MonthlyWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyWidgetBundle.swift; sourceTree = "<group>"; };
+		A91A1B1F2C33F2240035A117 /* MonthlyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyWidget.swift; sourceTree = "<group>"; };
+		A91A1B212C33F2260035A117 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A91A1B232C33F2260035A117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +66,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A91A1B132C33F2240035A117 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A91A1B1B2C33F2240035A117 /* SwiftUI.framework in Frameworks */,
+				A91A1B192C33F2240035A117 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -36,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				A91A1B032C33F1B00035A117 /* Monthly */,
+				A91A1B1C2C33F2240035A117 /* MonthlyWidget */,
+				A91A1B172C33F2240035A117 /* Frameworks */,
 				A91A1B022C33F1B00035A117 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				A91A1B012C33F1B00035A117 /* Monthly.app */,
+				A91A1B162C33F2240035A117 /* MonthlyWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +116,26 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A91A1B172C33F2240035A117 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A91A1B182C33F2240035A117 /* WidgetKit.framework */,
+				A91A1B1A2C33F2240035A117 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A91A1B1C2C33F2240035A117 /* MonthlyWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A91A1B1D2C33F2240035A117 /* MonthlyWidgetBundle.swift */,
+				A91A1B1F2C33F2240035A117 /* MonthlyWidget.swift */,
+				A91A1B212C33F2260035A117 /* Assets.xcassets */,
+				A91A1B232C33F2260035A117 /* Info.plist */,
+			);
+			path = MonthlyWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,15 +146,34 @@
 				A91A1AFD2C33F1B00035A117 /* Sources */,
 				A91A1AFE2C33F1B00035A117 /* Frameworks */,
 				A91A1AFF2C33F1B00035A117 /* Resources */,
+				A91A1B2A2C33F2260035A117 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A91A1B252C33F2260035A117 /* PBXTargetDependency */,
 			);
 			name = Monthly;
 			productName = Monthly;
 			productReference = A91A1B012C33F1B00035A117 /* Monthly.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A91A1B152C33F2240035A117 /* MonthlyWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A91A1B272C33F2260035A117 /* Build configuration list for PBXNativeTarget "MonthlyWidgetExtension" */;
+			buildPhases = (
+				A91A1B122C33F2240035A117 /* Sources */,
+				A91A1B132C33F2240035A117 /* Frameworks */,
+				A91A1B142C33F2240035A117 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MonthlyWidgetExtension;
+			productName = MonthlyWidgetExtension;
+			productReference = A91A1B162C33F2240035A117 /* MonthlyWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +186,9 @@
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					A91A1B002C33F1B00035A117 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					A91A1B152C33F2240035A117 = {
 						CreatedOnToolsVersion = 16.0;
 					};
 				};
@@ -116,6 +207,7 @@
 			projectRoot = "";
 			targets = (
 				A91A1B002C33F1B00035A117 /* Monthly */,
+				A91A1B152C33F2240035A117 /* MonthlyWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -127,6 +219,14 @@
 			files = (
 				A91A1B0C2C33F1B10035A117 /* Preview Assets.xcassets in Resources */,
 				A91A1B092C33F1B10035A117 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A91A1B142C33F2240035A117 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A91A1B222C33F2260035A117 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +242,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A91A1B122C33F2240035A117 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A91A1B1E2C33F2240035A117 /* MonthlyWidgetBundle.swift in Sources */,
+				A91A1B202C33F2240035A117 /* MonthlyWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A91A1B252C33F2260035A117 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A91A1B152C33F2240035A117 /* MonthlyWidgetExtension */;
+			targetProxy = A91A1B242C33F2260035A117 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A91A1B0D2C33F1B10035A117 /* Debug */ = {
@@ -322,6 +439,60 @@
 			};
 			name = Release;
 		};
+		A91A1B282C33F2260035A117 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3YXFTQFW9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MonthlyWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MonthlyWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.blur.Monthly.MonthlyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A91A1B292C33F2260035A117 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = B3YXFTQFW9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MonthlyWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MonthlyWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.blur.Monthly.MonthlyWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -339,6 +510,15 @@
 			buildConfigurations = (
 				A91A1B102C33F1B10035A117 /* Debug */,
 				A91A1B112C33F1B10035A117 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A91A1B272C33F2260035A117 /* Build configuration list for PBXNativeTarget "MonthlyWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A91A1B282C33F2260035A117 /* Debug */,
+				A91A1B292C33F2260035A117 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
