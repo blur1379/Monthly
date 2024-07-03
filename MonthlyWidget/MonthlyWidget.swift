@@ -51,14 +51,22 @@ struct MonthlyWidgetEntryView : View {
             ContainerRelativeShape()
                 .fill(.gray.gradient)
             VStack {
-                HStack {
+                HStack(spacing: 4) {
                     Text("⛄️")
+                        .font(.title)
                     Text(entry.date.weekDayDisplayFormat)
+                        .font(.title3)
+                        .bold()
+                        .minimumScaleFactor(0.6)
+                        .foregroundColor(.black.opacity(0.6))
+                    Spacer()
                 }
                 
                 Text(entry.date.dayDisplayFormat)
+                    .font(.system(size: 80,weight: .heavy))
+                    .foregroundStyle(Color.white.opacity(0.8))
             }
-
+            .padding()
         }
     }
 }
@@ -70,13 +78,16 @@ struct MonthlyWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 MonthlyWidgetEntryView(entry: entry)
+                    
                     .containerBackground(.fill.tertiary, for: .widget)
+                   
             } else {
                 MonthlyWidgetEntryView(entry: entry)
                     .padding()
                     .background()
             }
         }
+        .contentMarginsDisabled()
         .configurationDisplayName("My Widget")
         .description("This is an example widget.")
     }
