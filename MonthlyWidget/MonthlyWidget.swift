@@ -17,7 +17,7 @@ struct Provider: TimelineProvider {
         let entry = DayEntry(date: Date(), emoji: "😀")
         completion(entry)
     }
-
+// TODO: add Persian calender
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [DayEntry] = []
 
