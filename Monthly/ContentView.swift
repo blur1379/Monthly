@@ -9,16 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
+        HStack {
+            Image(systemName: "calendar")
                 .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            
+            Text(Date().dayDisplayFormat)
+                .font(.largeTitle)
+               
         }
+        .bold()
+        .foregroundStyle(Color(.label).opacity(0.5))
         .padding()
     }
 }
 
 #Preview {
     ContentView()
+}
+
+extension Date {
+    var weekDayDisplayFormat: String {
+        self.formatted(.dateTime.weekday(.wide))
+    }
+    var dayDisplayFormat: String {
+        self.formatted(.dateTime.day())
+    }
 }
