@@ -10,14 +10,14 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> DayEntry {
-        DayEntry(date: Date(), emoji: "😀")
+        DayEntry(date: Date())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (DayEntry) -> ()) {
-        let entry = DayEntry(date: Date(), emoji: "😀")
+        let entry = DayEntry(date: Date())
         completion(entry)
     }
-// TODO: add Persian calender
+// TODO: add Persian calendar
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [DayEntry] = []
 
@@ -28,7 +28,7 @@ struct Provider: TimelineProvider {
             let entryDate = Calendar.current.date(byAdding: .day, value: dayOffset, to: currentDate)!
             // update start day with first
             let startDay = Calendar.current.startOfDay(for: entryDate)
-            let entry = DayEntry(date: startDay, emoji: "😀")
+            let entry = DayEntry(date: startDay)
             entries.append(entry)
         }
 
@@ -43,34 +43,43 @@ struct Provider: TimelineProvider {
 
 struct DayEntry: TimelineEntry {
     let date: Date
-    let emoji: String
 }
 
 struct MonthlyWidgetEntryView : View {
+    @Environment(\.showsWidgetContainerBackground) var showContainerBackground
+    // rendering mode is for get place of rendering widget
+    @Environment(\.widgetRenderingMode) var renderingMode
     var entry: DayEntry
-
+    var config: MonthConfig
+    
+    init(entry: DayEntry) {
+        self.entry = entry
+        self.config = MonthConfig.determineConfig(from: entry.date)
+    }
+    
     var body: some View {
-        ZStack {
-            ContainerRelativeShape()
-                .fill(.gray.gradient)
-            VStack {
-                HStack(spacing: 4) {
-                    Text("⛄️")
-                        .font(.title)
-                    Text(entry.date.weekDayDisplayFormat)
-                        .font(.title3)
-                        .bold()
-                        .minimumScaleFactor(0.6)
-                        .foregroundColor(.black.opacity(0.6))
-                    Spacer()
-                }
-                
-                Text(entry.date.dayDisplayFormat)
-                    .font(.system(size: 80,weight: .heavy))
-                    .foregroundStyle(Color.white.opacity(0.8))
+        VStack {
+            HStack(spacing: 4) {
+                Text(config.emojiText)
+                    .font(.title)
+                Text(entry.date.weekDayDisplayFormat)
+                    .font(.title3)
+                    .bold()
+                    .minimumScaleFactor(0.6)
+                    .foregroundStyle(showContainerBackground ? config.weekdayTextColor : .white)
+                Spacer()
             }
-            .padding()
+            
+            Text(entry.date.dayDisplayFormat)
+                .font(.system(size: 80,weight: .heavy))
+                .foregroundStyle(showContainerBackground ? config.dayTextColor : .white)
+                .contentTransition(.numericText())
         }
+        .containerBackground(for: .widget) {
+            ContainerRelativeShape()
+                .fill(config.backgroundColor.gradient)
+        }
+        
     }
 }
 
@@ -81,7 +90,6 @@ struct MonthlyWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 MonthlyWidgetEntryView(entry: entry)
-                    
                     .containerBackground(.fill.tertiary, for: .widget)
                    
             } else {
@@ -90,18 +98,21 @@ struct MonthlyWidget: Widget {
                     .background()
             }
         }
-        .contentMarginsDisabled()
+//        .contentMarginsDisabled()
         .configurationDisplayName("Monthly Style Widget")
         .description("The theme of the widget changes based on month.")
+        // use for what size you use
         .supportedFamilies([.systemSmall])
+        // place of "not" use widgets for each size
+//        .disfavoredLocations([.homeScreen,.lockScreen], for: [.systemLarge])
     }
 }
 
 #Preview(as: .systemSmall) {
     MonthlyWidget()
 } timeline: {
-    DayEntry(date: .now, emoji: "😀")
-    DayEntry(date: .now, emoji: "🤩")
+    DayEntry(date: .now)
+    DayEntry(date: .now)
 }
 
 extension Date {
@@ -110,5 +121,13 @@ extension Date {
     }
     var dayDisplayFormat: String {
         self.formatted(.dateTime.day())
+    }
+}
+
+struct MockData {
+    static let dayOne = DayEntry(date: <#T##Date#>, emoji: <#T##String#>)
+    
+    static func dateToDisplay(month: Int, day: Int) -> Date {
+        let compo
     }
 }
