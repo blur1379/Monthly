@@ -17,6 +17,8 @@
 		A91A1B202C33F2240035A117 /* MonthlyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91A1B1F2C33F2240035A117 /* MonthlyWidget.swift */; };
 		A91A1B222C33F2260035A117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91A1B212C33F2260035A117 /* Assets.xcassets */; };
 		A91A1B262C33F2260035A117 /* MonthlyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A91A1B162C33F2240035A117 /* MonthlyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A9FA90B12C3825FF009532FA /* MonthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA90B02C3825FF009532FA /* MonthConfig.swift */; };
+		A9FA90B42C382875009532FA /* Colors+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA90B32C382875009532FA /* Colors+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		A91A1B1F2C33F2240035A117 /* MonthlyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyWidget.swift; sourceTree = "<group>"; };
 		A91A1B212C33F2260035A117 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A91A1B232C33F2260035A117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9FA90B02C3825FF009532FA /* MonthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthConfig.swift; sourceTree = "<group>"; };
+		A9FA90B32C382875009532FA /* Colors+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 				A91A1B1F2C33F2240035A117 /* MonthlyWidget.swift */,
 				A91A1B212C33F2260035A117 /* Assets.xcassets */,
 				A91A1B232C33F2260035A117 /* Info.plist */,
+				A9FA90B02C3825FF009532FA /* MonthConfig.swift */,
+				A9FA90B32C382875009532FA /* Colors+Ext.swift */,
 			);
 			path = MonthlyWidget;
 			sourceTree = "<group>";
@@ -247,6 +253,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A91A1B1E2C33F2240035A117 /* MonthlyWidgetBundle.swift in Sources */,
+				A9FA90B42C382875009532FA /* Colors+Ext.swift in Sources */,
+				A9FA90B12C3825FF009532FA /* MonthConfig.swift in Sources */,
 				A91A1B202C33F2240035A117 /* MonthlyWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
