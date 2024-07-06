@@ -69,7 +69,9 @@ struct MonthlyWidgetEntryView : View {
                     .foregroundStyle(showContainerBackground ? config.weekdayTextColor : .white)
                 Spacer()
             }
-            
+            .id(entry.date)
+            .transition(.push(from: .trailing))
+            .animation(.bouncy, value: entry.date)
             Text(entry.date.dayDisplayFormat)
                 .font(.system(size: 80,weight: .heavy))
                 .foregroundStyle(showContainerBackground ? config.dayTextColor : .white)
