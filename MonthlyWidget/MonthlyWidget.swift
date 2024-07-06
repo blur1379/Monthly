@@ -125,7 +125,10 @@ extension Date {
 }
 
 struct MockData {
-    static let dayOne = DayEntry(date: <#T##Date#>, emoji: <#T##String#>)
+    static let dayOne = DayEntry(date: dateToDisplay(month: 11, day: 4))
+    static let dayTwo = DayEntry(date: dateToDisplay(month: 2, day: 5))
+    static let dayThree = DayEntry(date: dateToDisplay(month: 10, day: 6))
+    static let dayFour = DayEntry(date: dateToDisplay(month: 12, day: 7))
     
     static func dateToDisplay(month: Int, day: Int) -> Date {
         let compo
