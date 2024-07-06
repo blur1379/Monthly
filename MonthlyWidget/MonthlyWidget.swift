@@ -92,7 +92,6 @@ struct MonthlyWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 MonthlyWidgetEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
                    
             } else {
                 MonthlyWidgetEntryView(entry: entry)
