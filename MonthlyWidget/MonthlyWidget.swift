@@ -131,6 +131,10 @@ struct MockData {
     static let dayFour = DayEntry(date: dateToDisplay(month: 12, day: 7))
     
     static func dateToDisplay(month: Int, day: Int) -> Date {
-        let compo
+        let components = DateComponents(calendar: Calendar.current,
+                                        year: 2022,
+                                        month: month,
+                                        day: day)
+        return Calendar.current.date(from: components)!
     }
 }
