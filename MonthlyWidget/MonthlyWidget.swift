@@ -111,8 +111,10 @@ struct MonthlyWidget: Widget {
 #Preview(as: .systemSmall) {
     MonthlyWidget()
 } timeline: {
-    DayEntry(date: .now)
-    DayEntry(date: .now)
+    MockData.dayOne
+    MockData.dayTwo
+    MockData.dayThree
+    MockData.dayFour
 }
 
 extension Date {
