@@ -7,16 +7,21 @@
 
 import WidgetKit
 import SwiftUI
+import AppIntents
 
-struct Provider: IntentTimelineProvider {
-    func getSnapshot(for configuration: ChangeFontIntent, in context: Context, completion: @escaping @Sendable (DayEntry) -> Void) {
-        let entry = DayEntry(date: Date(), showFunFont: false)
-        completion(entry)
+struct Provider: AppIntentTimelineProvider {
+    
+    func placeholder(in context: Context) -> DayEntry {
+        DayEntry(date: Date(), showFunFont: false)
     }
     
-    func getTimeline(for configuration: ChangeFontIntent, in context: Context, completion: @escaping @Sendable (Timeline<DayEntry>) -> Void) {
-        
-        let showFunFont = configuration.funFont == 1
+    func snapshot(for configuration: ChangeFontIntent, in context: Context) async -> DayEntry {
+        let entry = DayEntry(date: Date(), showFunFont: false)
+        return entry
+    }
+    
+    func timeline(for configuration: ChangeFontIntent, in context: Context) async -> Timeline<DayEntry> {
+        let showFunFont = configuration.funFont
         
         var entries: [DayEntry] = []
 
@@ -32,11 +37,7 @@ struct Provider: IntentTimelineProvider {
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
-    }
-    
-    func placeholder(in context: Context) -> DayEntry {
-        DayEntry(date: Date(), showFunFont: false)
+        return timeline
     }
 }
 
@@ -91,7 +92,7 @@ struct MonthlyWidget: Widget {
 
     var body: some WidgetConfiguration {
         
-        IntentConfiguration(kind: kind, intent: ChangeFontIntent.self, provider: Provider()) { entry in
+        AppIntentConfiguration(kind: kind, intent: ChangeFontIntent.self, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 MonthlyWidgetEntryView(entry: entry)
                    
@@ -112,7 +113,13 @@ struct MonthlyWidget: Widget {
     }
 }
 
-
+struct ChangeFontIntent: AppIntent, WidgetConfigurationIntent {
+    static var title: LocalizedStringResource = "Fun Font"
+    static var description: IntentDescription = IntentDescription(stringLiteral: "Switch to a fun Font")
+    
+    @Parameter(title: "Func font")
+    var funFont: Bool
+}
 
 #Preview(as: .systemSmall) {
     MonthlyWidget()
