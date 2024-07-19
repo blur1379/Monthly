@@ -8,17 +8,16 @@
 import WidgetKit
 import SwiftUI
 
-struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> DayEntry {
-        DayEntry(date: Date())
-    }
-
-    func getSnapshot(in context: Context, completion: @escaping (DayEntry) -> ()) {
-        let entry = DayEntry(date: Date())
+struct Provider: IntentTimelineProvider {
+    func getSnapshot(for configuration: ChangeFontIntent, in context: Context, completion: @escaping @Sendable (DayEntry) -> Void) {
+        let entry = DayEntry(date: Date(), showFunFont: false)
         completion(entry)
     }
-// TODO: add Persian calendar
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    
+    func getTimeline(for configuration: ChangeFontIntent, in context: Context, completion: @escaping @Sendable (Timeline<DayEntry>) -> Void) {
+        
+        let showFunFont = configuration.funFont == 1
+        
         var entries: [DayEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
@@ -28,21 +27,22 @@ struct Provider: TimelineProvider {
             let entryDate = Calendar.current.date(byAdding: .day, value: dayOffset, to: currentDate)!
             // update start day with first
             let startDay = Calendar.current.startOfDay(for: entryDate)
-            let entry = DayEntry(date: startDay)
+            let entry = DayEntry(date: startDay, showFunFont: showFunFont)
             entries.append(entry)
         }
 
         let timeline = Timeline(entries: entries, policy: .atEnd)
         completion(timeline)
     }
-
-//    func relevances() async -> WidgetRelevances<Void> {
-//        // Generate a list containing the contexts this widget is relevant in.
-//    }
+    
+    func placeholder(in context: Context) -> DayEntry {
+        DayEntry(date: Date(), showFunFont: false)
+    }
 }
 
 struct DayEntry: TimelineEntry {
     let date: Date
+    let showFunFont: Bool
 }
 
 struct MonthlyWidgetEntryView : View {
@@ -51,6 +51,7 @@ struct MonthlyWidgetEntryView : View {
     @Environment(\.widgetRenderingMode) var renderingMode
     var entry: DayEntry
     var config: MonthConfig
+    var funFontName: String = "Chalkduster"
     
     init(entry: DayEntry) {
         self.entry = entry
@@ -63,7 +64,7 @@ struct MonthlyWidgetEntryView : View {
                 Text(config.emojiText)
                     .font(.title)
                 Text(entry.date.weekDayDisplayFormat)
-                    .font(.title3)
+                    .font(entry.showFunFont ? .custom(funFontName, size: 24) : .title3)
                     .bold()
                     .minimumScaleFactor(0.6)
                     .foregroundStyle(showContainerBackground ? config.weekdayTextColor : .white)
@@ -73,7 +74,7 @@ struct MonthlyWidgetEntryView : View {
             .transition(.push(from: .trailing))
             .animation(.bouncy, value: entry.date)
             Text(entry.date.dayDisplayFormat)
-                .font(.system(size: 80,weight: .heavy))
+                .font(entry.showFunFont ? .custom(funFontName, size: 80) : .system(size: 80,weight: .heavy))
                 .foregroundStyle(showContainerBackground ? config.dayTextColor : .white)
                 .contentTransition(.numericText())
         }
@@ -89,7 +90,8 @@ struct MonthlyWidget: Widget {
     let kind: String = "MonthlyWidget"
 
     var body: some WidgetConfiguration {
-        StaticConfiguration(kind: kind, provider: Provider()) { entry in
+        
+        IntentConfiguration(kind: kind, intent: ChangeFontIntent.self, provider: Provider()) { entry in
             if #available(iOS 17.0, *) {
                 MonthlyWidgetEntryView(entry: entry)
                    
@@ -99,6 +101,7 @@ struct MonthlyWidget: Widget {
                     .background()
             }
         }
+
 //        .contentMarginsDisabled()
         .configurationDisplayName("Monthly Style Widget")
         .description("The theme of the widget changes based on month.")
@@ -108,6 +111,8 @@ struct MonthlyWidget: Widget {
 //        .disfavoredLocations([.homeScreen,.lockScreen], for: [.systemLarge])
     }
 }
+
+
 
 #Preview(as: .systemSmall) {
     MonthlyWidget()
@@ -128,10 +133,10 @@ extension Date {
 }
 
 struct MockData {
-    static let dayOne = DayEntry(date: dateToDisplay(month: 11, day: 4))
-    static let dayTwo = DayEntry(date: dateToDisplay(month: 2, day: 5))
-    static let dayThree = DayEntry(date: dateToDisplay(month: 10, day: 6))
-    static let dayFour = DayEntry(date: dateToDisplay(month: 12, day: 7))
+    static let dayOne = DayEntry(date: dateToDisplay(month: 11, day: 4), showFunFont: true)
+    static let dayTwo = DayEntry(date: dateToDisplay(month: 2, day: 5), showFunFont: false)
+    static let dayThree = DayEntry(date: dateToDisplay(month: 10, day: 6), showFunFont: false)
+    static let dayFour = DayEntry(date: dateToDisplay(month: 12, day: 7), showFunFont: false)
     
     static func dateToDisplay(month: Int, day: Int) -> Date {
         let components = DateComponents(calendar: Calendar.current,

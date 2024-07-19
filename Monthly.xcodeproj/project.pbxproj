@@ -17,6 +17,8 @@
 		A91A1B202C33F2240035A117 /* MonthlyWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91A1B1F2C33F2240035A117 /* MonthlyWidget.swift */; };
 		A91A1B222C33F2260035A117 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A91A1B212C33F2260035A117 /* Assets.xcassets */; };
 		A91A1B262C33F2260035A117 /* MonthlyWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A91A1B162C33F2240035A117 /* MonthlyWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A9758E502C4A523700EF7865 /* MonthlyWidgetIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A9758E4F2C4A523700EF7865 /* MonthlyWidgetIntents.intentdefinition */; };
+		A9758E512C4A523700EF7865 /* MonthlyWidgetIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = A9758E4F2C4A523700EF7865 /* MonthlyWidgetIntents.intentdefinition */; };
 		A9FA90B12C3825FF009532FA /* MonthConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA90B02C3825FF009532FA /* MonthConfig.swift */; };
 		A9FA90B42C382875009532FA /* Colors+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA90B32C382875009532FA /* Colors+Ext.swift */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		A91A1B1F2C33F2240035A117 /* MonthlyWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyWidget.swift; sourceTree = "<group>"; };
 		A91A1B212C33F2260035A117 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A91A1B232C33F2260035A117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9758E4F2C4A523700EF7865 /* MonthlyWidgetIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = MonthlyWidgetIntents.intentdefinition; sourceTree = "<group>"; };
+		A9758E522C4A541E00EF7865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		A9FA90B02C3825FF009532FA /* MonthConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthConfig.swift; sourceTree = "<group>"; };
 		A9FA90B32C382875009532FA /* Colors+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colors+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +108,7 @@
 		A91A1B032C33F1B00035A117 /* Monthly */ = {
 			isa = PBXGroup;
 			children = (
+				A9758E522C4A541E00EF7865 /* Info.plist */,
 				A91A1B042C33F1B00035A117 /* MonthlyApp.swift */,
 				A91A1B062C33F1B00035A117 /* ContentView.swift */,
 				A91A1B082C33F1B10035A117 /* Assets.xcassets */,
@@ -138,6 +143,7 @@
 				A91A1B232C33F2260035A117 /* Info.plist */,
 				A9FA90B02C3825FF009532FA /* MonthConfig.swift */,
 				A9FA90B32C382875009532FA /* Colors+Ext.swift */,
+				A9758E4F2C4A523700EF7865 /* MonthlyWidgetIntents.intentdefinition */,
 			);
 			path = MonthlyWidget;
 			sourceTree = "<group>";
@@ -244,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A91A1B072C33F1B00035A117 /* ContentView.swift in Sources */,
+				A9758E512C4A523700EF7865 /* MonthlyWidgetIntents.intentdefinition in Sources */,
 				A91A1B052C33F1B00035A117 /* MonthlyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +261,7 @@
 			files = (
 				A91A1B1E2C33F2240035A117 /* MonthlyWidgetBundle.swift in Sources */,
 				A9FA90B42C382875009532FA /* Colors+Ext.swift in Sources */,
+				A9758E502C4A523700EF7865 /* MonthlyWidgetIntents.intentdefinition in Sources */,
 				A9FA90B12C3825FF009532FA /* MonthConfig.swift in Sources */,
 				A91A1B202C33F2240035A117 /* MonthlyWidget.swift in Sources */,
 			);
@@ -400,6 +408,7 @@
 				DEVELOPMENT_TEAM = B3YXFTQFW9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Monthly/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -429,6 +438,7 @@
 				DEVELOPMENT_TEAM = B3YXFTQFW9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Monthly/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
